@@ -8,43 +8,43 @@ const ExpandedSidebar = () => {
         {
             icon: BsGrid,
             title: 'Dashboard',
-            link: '/dashboard',
+            link: '/Dashboard',
             selected: false
         },
         {
             icon: BsBox2,
             title: 'Categories',
-            link: '/categories',
+            link: '/Categories',
             selected: false
         },
         {
             icon: BsBag,
             title: 'Products',
-            link: '/products',
+            link: '/Products',
             selected: false
         },
         {
             icon: BsSliders,
             title: 'Settings',
-            link: '/settings',
+            link: '/Settings',
             selected: false
         },
         {
             icon: BsTicketPerforated,
             title: 'Transactions',
-            link: '/transactions',
+            link: '/Transactions',
             selected: false
         },
         {
             icon: BsPeople,
             title: 'Users',
-            link: '/users',
+            link: '/Users',
             selected: false
         },
         {
             icon: BsArrowBarLeft,
             title: 'Logout',
-            link: '/login',
+            link: '/Login',
             selected: false
         },
     ]);
@@ -63,7 +63,7 @@ const ExpandedSidebar = () => {
 
     const [showExpandedSidebar, setShowExpandedSidebar] = useState(true);
 
-    const handleClick = () => {
+    const handleToggle = () => {
         setShowExpandedSidebar(!showExpandedSidebar);
     };
 
@@ -71,17 +71,18 @@ const ExpandedSidebar = () => {
         <>
             {showExpandedSidebar ? (
                 <section className='expanded-sidebar'>
-                    <span className='logo-text' onClick={handleClick}>BASKETS</span>
+                    <span className='logo-text' onClick={handleToggle}>BASKETS</span>
                     {menus.map((menu, index) => (
                         <>
-                            <button
+                            <Link
+                                to={menu.link}
                                 key={index}
                                 onClick={() => handleMenuClick(index)}
                                 className={menu.selected ? 'selected-menu' : 'unselected-menu'}
                             >
                                 <menu.icon className='es-icon' />
                                 {menu.title}
-                            </button>
+                            </Link>
                         </>
                     ))}
                 </section>
@@ -97,43 +98,43 @@ const CompactedSidebar = () => {
         {
             icon: BsGrid,
             title: 'Dashboard',
-            link: '/dashboard',
+            link: '/Dashboard',
             selected: false
         },
         {
             icon: BsBox2,
             title: 'Categories',
-            link: '/categories',
+            link: '/Categories',
             selected: false
         },
         {
             icon: BsBag,
             title: 'Products',
-            link: '/products',
+            link: '/Products',
             selected: false
         },
         {
             icon: BsSliders,
             title: 'Settings',
-            link: '/settings',
+            link: '/Settings',
             selected: false
         },
         {
             icon: BsTicketPerforated,
             title: 'Transactions',
-            link: '/transactions',
+            link: '/Transactions',
             selected: false
         },
         {
             icon: BsPeople,
             title: 'Users',
-            link: '/users',
+            link: '/Users',
             selected: false
         },
         {
             icon: BsArrowBarLeft,
             title: 'Logout',
-            link: '/login',
+            link: '/Login',
             selected: false
         },
     ]);
@@ -152,7 +153,7 @@ const CompactedSidebar = () => {
 
     const [showExpandedSidebar, setShowExpandedSidebar] = useState(false);
 
-    const handleClick = () => {
+    const handleToggle = () => {
         setShowExpandedSidebar(!showExpandedSidebar);
     };
 
@@ -162,7 +163,7 @@ const CompactedSidebar = () => {
                 <ExpandedSidebar />
             ) : (
                 <section className='compacted-sidebar'>
-                    <span className='logo-text' onClick={handleClick} >KETS</span>
+                    <span className='logo-text' onClick={handleToggle} >KETS</span>
                     {menus.map((menu, index) => (
                         <>
                             <button

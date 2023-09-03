@@ -1,14 +1,14 @@
 import React from "react";
 import "../styles/Styles.css";
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ title, route1, toggle }) => {
   return (
     <>
       <div className="header-container">
-        <p>Screen title</p>
+        <p>{title}</p>
         <span>
-          <Link to={''} className="colored-page-link">Other screen 1</Link>
+          <Link to={''} onClick={toggle} className="colored-page-link">{route1}</Link>
           <span> | </span>
           <Link to={''} className="colored-page-link">Other screen 2</Link>
         </span>
