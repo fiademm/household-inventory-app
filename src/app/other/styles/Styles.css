@@ -17,7 +17,7 @@
 }
 
 .expanded-sidebar .selected-menu, .expanded-sidebar .unselected-menu {
-    padding: 1vw 0;
+    padding: 1.3vw 0;
     border: none;
     display: flex;
     flex-direction: row;
@@ -28,7 +28,7 @@
     font-family: 'Jost-Medium';
 }
 
-.selected-menu {
+.expanded-sidebar .selected-menu {
     border-bottom: .15vw solid #1f9984;
     border-left: .8vw solid #1f9984;
     color: #1f9984;
@@ -40,7 +40,7 @@
     font-weight: 900;
 }
 
-.unselected-menu {
+.expanded-sidebar .unselected-menu {
     background-color: white;
     border-bottom: .1vw solid #ddd;
     color: #202020;
@@ -64,7 +64,7 @@
 }
 
 .compacted-sidebar .selected-menu, .compacted-sidebar .unselected-menu {
-    padding: 1vw 0;
+    padding: 1.3vw 0;
     border: none;
     display: flex;
     flex-direction: row;
@@ -72,4 +72,18 @@
     justify-content: center;
     gap: 1.6vw;
     font-family: 'Jost-Medium';
+}
+
+.compacted-sidebar .selected-menu {
+    border-bottom: .15vw solid #1f9984;
+    border-left: .4vw solid #1f9984;
+    color: #1f9984;
+}
+
+.compacted-sidebar .unselected-menu {
+    background-color: white;
+    border-bottom: .1vw solid #ddd;
+    color: #202020;
+    display: flex;
+    
 }
