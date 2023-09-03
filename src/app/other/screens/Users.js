@@ -1,12 +1,12 @@
 import React from 'react'
-import { ExpandedSidebar } from '../components/Sidebars';
+import { CompactedSidebar, ExpandedSidebar } from '../components/Sidebars';
 import { ViewUsers } from '../components/Users';
 
 const Users = () => {
     return (
         <>
             <div className="main-component-container">
-                <ExpandedSidebar />
+                <CompactedSidebar />
 
                 <ViewUsers />
             </div>
