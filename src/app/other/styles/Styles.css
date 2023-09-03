@@ -35,7 +35,7 @@
     padding-left: 24%;
 }
 
-.selected-menu > .es-icon {
+.expanded-sidebar .selected-menu > .es-icon, .compacted-sidebar .selected-menu > .es-icon {
     font-size: 1.3vw;
     font-weight: 900;
 }
@@ -48,7 +48,7 @@
     
 }
 
-.unselected-menu > .es-icon {
+.expanded-sidebar .unselected-menu > .es-icon, .compacted-sidebar .unselected-menu > .es-icon {
     font-size: 1.3vw;
     font-weight: 900;
 }
