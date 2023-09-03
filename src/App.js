@@ -1,12 +1,14 @@
-import { ExpandedSidebar } from './app/other/components/Sidebars';
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Dashboard from './app/other/screens/Dashboard';
 
-function App() {
+const App = () => {
   return (
-    <>
-      <div >
-        <ExpandedSidebar />
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Dashboard />}></Route>
+      </Routes>
+    </Router>
   );
 }
 

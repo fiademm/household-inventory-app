@@ -1,4 +1,4 @@
-/* styles for sidebars component */
+/* Sidebars Component */
 .expanded-sidebar {
     background-color: #fefefe;
     border-right: .1vw solid #ddd;
@@ -6,7 +6,7 @@
     flex-direction: column;
     min-height: 100vh;
     text-align: center;
-    width: 18vw;
+    width: 22vw;
 }
 
 .logo-text {
@@ -14,6 +14,7 @@
     font-size: 1.4vw;
     font-family: 'Jost-Semi';
     color: #1f9984;
+    cursor: pointer;
 }
 
 .expanded-sidebar .selected-menu, .expanded-sidebar .unselected-menu {
@@ -23,16 +24,17 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 4.6vw;
+    padding-inline: 23%;
     gap: 1.6vw;
     font-family: 'Jost-Medium';
+    cursor: pointer;
 }
 
 .expanded-sidebar .selected-menu {
     border-bottom: .15vw solid #1f9984;
     border-left: .8vw solid #1f9984;
     color: #1f9984;
-    padding-left: 24%;
+    
 }
 
 .expanded-sidebar .selected-menu > .es-icon, .compacted-sidebar .selected-menu > .es-icon {
@@ -45,7 +47,6 @@
     border-bottom: .1vw solid #ddd;
     color: #202020;
     display: flex;
-    
 }
 
 .expanded-sidebar .unselected-menu > .es-icon, .compacted-sidebar .unselected-menu > .es-icon {
@@ -60,7 +61,7 @@
     flex-direction: column;
     min-height: 100vh;
     text-align: center;
-    width: 6vw;
+    width: 7vw;
 }
 
 .compacted-sidebar .selected-menu, .compacted-sidebar .unselected-menu {
@@ -72,6 +73,7 @@
     justify-content: center;
     gap: 1.6vw;
     font-family: 'Jost-Medium';
+    cursor: pointer;
 }
 
 .compacted-sidebar .selected-menu {
@@ -86,4 +88,34 @@
     color: #202020;
     display: flex;
     
+}
+
+/* Header Component */
+.header-container {
+    border-bottom: 0.1vw solid #ddd;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: .3vw;
+    width: 100%;
+}
+
+/* Main Component Container */
+.main-component-container {
+    display: flex;
+}
+
+/* Main Screen Container */
+.main-screen {
+    display: flex;
+    flex-direction: column;
+    padding: 1.8vw 3vw;
+    width: 100%;
+}
+
+.content {}
+
+.colored-page-link {
+    color: #1f9984;
 }

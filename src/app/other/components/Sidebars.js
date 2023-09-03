@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/Styles.css';
-import { BsArrowBarLeft, BsBag, BsBasket3, BsBox2, BsBoxes, BsFillGridFill, BsGrid, BsGridFill, BsPeople, BsSliders, BsTicketPerforated } from "react-icons/bs";
+import { BsArrowBarLeft, BsBag, BsBox2, BsGrid, BsPeople, BsSliders, BsTicketPerforated } from "react-icons/bs";
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 const ExpandedSidebar = () => {
     const [menus, setMenus] = useState([
