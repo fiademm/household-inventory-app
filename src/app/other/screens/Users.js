@@ -1,5 +1,5 @@
-import React from 'react'
-import { CompactedSidebar, ExpandedSidebar } from '../components/Sidebars';
+import React from 'react';
+import { CompactedSidebar } from '../components/Sidebars';
 import { ViewUsers } from '../components/Users';
 
 const Users = () => {
