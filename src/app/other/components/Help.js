@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Header from '../components/Header';
 
-const ViewHelps = () => {
+const ViewHelp = () => {
     const [showViewHelp, setShowViewHelp] = useState(true);
 
     const handleScreenToggle = () => {
@@ -12,10 +12,10 @@ const ViewHelps = () => {
         <>
             {showViewHelp ? (
                 <section className='main-screen'>
-                    <Header title='View helps' route1='Create help' toggle={handleScreenToggle} />
+                    <Header title='View help' route1='Create help' toggle={handleScreenToggle} />
 
                     <section className="content">
-                        View Helps
+                        View Help
                     </section>
                 </section>
             ) : (
@@ -35,10 +35,10 @@ const CreateHelp = () => {
     return (
         <>
             {showViewHelp ? (
-                <ViewHelps />
+                <ViewHelp />
             ) : (
                 <section className='main-screen'>
-                    <Header title='Create help' route1='View helps' toggle={handleScreenToggle} />
+                    <Header title='Create help' route1='View help' toggle={handleScreenToggle} />
 
                     <section className="content">
                         Create Help
@@ -49,4 +49,4 @@ const CreateHelp = () => {
     );
 };
 
-export { CreateHelp, ViewHelps };
+export { CreateHelp, ViewHelp };

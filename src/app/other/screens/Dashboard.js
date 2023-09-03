@@ -1,16 +1,18 @@
-import React from 'react'
-import { ExpandedSidebar } from '../components/Sidebars';
+import React from 'react';
 import Header from '../components/Header';
+import { CompactedSidebar } from '../components/Sidebars';
 
 const Dashboard = () => {
     return (
         <>
             <div className="main-component-container">
-                <ExpandedSidebar />
+                <CompactedSidebar />
 
                 <section className='main-screen'>
                     <Header />
-                    <section className="content"></section>
+                    <section className="content">
+                        Dashboard
+                    </section>
                 </section>
             </div>
         </>
