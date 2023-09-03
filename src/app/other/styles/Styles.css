@@ -1,0 +1,75 @@
+/* styles for sidebars component */
+.expanded-sidebar {
+    background-color: #fefefe;
+    border-right: .1vw solid #ddd;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    width: 18vw;
+}
+
+.logo-text {
+    padding: 2vw 0;
+    font-size: 1.4vw;
+    font-family: 'Jost-Semi';
+    color: #1f9984;
+}
+
+.expanded-sidebar .selected-menu, .expanded-sidebar .unselected-menu {
+    padding: 1vw 0;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 4.6vw;
+    gap: 1.6vw;
+    font-family: 'Jost-Medium';
+}
+
+.selected-menu {
+    border-bottom: .15vw solid #1f9984;
+    border-left: .8vw solid #1f9984;
+    color: #1f9984;
+    padding-left: 24%;
+}
+
+.selected-menu > .es-icon {
+    font-size: 1.3vw;
+    font-weight: 900;
+}
+
+.unselected-menu {
+    background-color: white;
+    border-bottom: .1vw solid #ddd;
+    color: #202020;
+    display: flex;
+    
+}
+
+.unselected-menu > .es-icon {
+    font-size: 1.3vw;
+    font-weight: 900;
+}
+
+.compacted-sidebar {
+    background-color: #fefefe;
+    border-right: .1vw solid #ddd;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    text-align: center;
+    width: 6vw;
+}
+
+.compacted-sidebar .selected-menu, .compacted-sidebar .unselected-menu {
+    padding: 1vw 0;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6vw;
+    font-family: 'Jost-Medium';
+}
