@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ReactComponent as Illustration } from '../../../illustrations/Spreadsheets-amico.svg';
-import { BsEye, BsEyeSlash, BsFillEyeFill } from 'react-icons/bs';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -11,28 +13,34 @@ const Login = () => {
         setShowPassword(!showPassword);
     };
 
-    const handleEmailValidation = () => {
-        if (email.includes('@')) {
-            setEmail('');
-        }
-    }
-
     const handleValidation = () => {
         var reEmail = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
 
         if (!email.match(reEmail)) {
-            alert("Invalid email address");
+            toast.error("Incorrect email address format.");
             return false;
         }
 
         if (password === '') {
-            alert("Please enter a password");
-            return false; 
+            toast.error("Password is required.");
+            return false;
         }
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         handleValidation();
+        if (handleValidation) {
+            try {
+                toast.success('Logged in successfully');
+                localStorage.setItem("basketEmail", email); //store user id to local storage
+                
+                setTimeout(() => {
+                    window.location.href = '/Dashboard'; // redirect the user to the specified route
+                }, 2000);
+            } catch (error) {
+                toast.error('Invalid email or password');
+            }
+        }
     }
 
     return (
@@ -68,6 +76,7 @@ const Login = () => {
                     </span>
 
                     <span className="footer-text">Copyright &copy; Baskets 2023. All Rights Reserved.</span>
+                    <ToastContainer />
                 </section>
                 <section className="right">
                     <Illustration className='illustration' />
