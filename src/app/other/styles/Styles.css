@@ -124,3 +124,130 @@ a {
 .colored-page-link {
     color: #1f9984;
 }
+
+/* Login Component */
+.main-component-container .left, .main-component-container .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 50%;
+}
+
+.main-component-container .left {
+    background-color: #fafafa;
+    justify-content: space-between;
+}
+
+.main-component-container .right {
+    background-color: #26baa0;
+    background-color: rgba(31, 153, 132, 0.7);
+    justify-content: center;
+}
+
+.logo-text-large {
+    color: #1f9984;
+    cursor: pointer;
+    font-size: 1.8vw;
+    font-family: 'Jost-Semi';
+    letter-spacing: .05vw;
+    padding: 2vw 0;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 24%;
+    gap: 2.8vw;
+    width: 100%;
+}
+
+.welcome-text {
+    color: #404040;
+    font-family: 'Jost-Medium';
+    font-size: 1.8vw;
+}
+
+.subtitle-text {
+    color: #888;
+}
+
+.form-inputs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.4vw;
+}
+
+.password-element {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4vw;
+}
+
+.input-label {
+    color: #666;
+}
+
+.input-element:focus {
+    background-color: #e8f0fe;
+    border: 0.01vw solid #1b8572;
+    outline: none;
+}
+
+.input-element {
+    background-color: #fefefe;
+    border: 0.01vw solid #1b8572;
+    border-radius: .3vw;
+    padding: 0.8vw 1vw;
+    width: 100%;
+}
+
+.password-input {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+.password-icon {
+    color: #1f9984;
+    font-size: 1.6vw;
+}
+
+.reset-password {
+    color: #1f9984;
+}
+
+.support-container {
+    color: #666;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+}
+
+.login-button {
+    background-color: #1f9984;
+    border: none;
+    border-radius: .3vw;
+    color: #fefefe;
+    font-family: 'Jost-Medium';
+    outline: none;
+    padding: 0.8vw 0;
+}
+
+.footer-text {
+    color: #666;
+    padding: 2vw 0;
+}
+
+.illustration {
+    width: 80%;
+}

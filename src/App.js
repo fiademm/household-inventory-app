@@ -7,12 +7,13 @@ import Help from './app/other/screens/Help';
 import Settings from './app/other/screens/Settings';
 import Products from './app/other/screens/Products';
 import Categories from './app/other/screens/Categories';
+import Login from './app/other/components/Login';
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Dashboard />}></Route>
+        <Route path='/' element={<Login />}></Route>
         <Route path='/Dashboard' element={<Dashboard />}></Route>
         <Route path='/Categories' element={<Categories />}></Route>
         <Route path='/Products' element={<Products />}></Route>
