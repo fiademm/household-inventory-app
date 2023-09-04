@@ -50,7 +50,7 @@ const ExpandedSidebar = () => {
         {
             icon: BsArrowBarLeft,
             title: 'Logout',
-            link: '/Login',
+            link: '/',
             selected: false
         },
     ]);
@@ -153,7 +153,7 @@ const CompactedSidebar = () => {
         {
             icon: BsArrowBarLeft,
             title: 'Logout',
-            link: '/Login',
+            link: '/',
             selected: false
         },
     ]);
