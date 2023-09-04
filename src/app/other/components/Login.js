@@ -12,11 +12,27 @@ const Login = () => {
     };
 
     const handleEmailValidation = () => {
-
+        if (email.includes('@')) {
+            setEmail('');
+        }
     }
 
     const handleValidation = () => {
+        var reEmail = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
 
+        if (!email.match(reEmail)) {
+            alert("Invalid email address");
+            return false;
+        }
+
+        if (password === '') {
+            alert("Please enter a password");
+            return false; 
+        }
+    }
+
+    const handleSubmit = () => {
+        handleValidation();
     }
 
     return (
@@ -44,7 +60,7 @@ const Login = () => {
                                 {/* <span className="reset-password">Reset password</span> */}
                             </span>
                         </span>
-                        <button className="login-button">Login</button>
+                        <button className="login-button" onClick={handleSubmit}>Login</button>
                         <span className="support-container">
                             <hr />
                             <span>Contact support via <a href="mailto:">baskets@email.com</a></span>
