@@ -20,21 +20,22 @@ const Login = () => {
         if (!email.match(reEmail)) {
             toast.error("Incorrect email address format.");
             return false;
-        }
-
-        if (password === '') {
+        } else if (password === '') {
             toast.error("Password is required.");
             return false;
+        } else {
+            return true;
         }
     }
 
     const handleSubmit = async () => {
         handleValidation();
-        if (handleValidation) {
+        
+        if (handleValidation() === true) {
             try {
                 toast.success('Logged in successfully');
                 localStorage.setItem("basketEmail", email); //store user id to local storage
-                
+
                 setTimeout(() => {
                     window.location.href = '/Dashboard'; // redirect the user to the specified route
                 }, 2000);
@@ -77,11 +78,11 @@ const Login = () => {
                     </span>
 
                     <span className="footer-text">Copyright &copy; Baskets 2023. All Rights Reserved.</span>
-                    <ToastContainer />
                 </section>
                 <section className="right">
                     <Illustration className='illustration' />
                 </section>
+                <ToastContainer />
             </div>
         </>
     );
