@@ -4,56 +4,71 @@ import { Link } from 'react-router-dom';
 import '../styles/Styles.css';
 
 const ExpandedSidebar = () => {
+    const handleLogout = () => {
+        localStorage.setItem('selectedMenuIndex', '0'); // Store selected menu index in localStorage
+    }
+
+    const doNothing = () => { }
+
     const [menus, setMenus] = useState([
         {
             icon: BsGrid,
             title: 'Dashboard',
             link: '/Dashboard',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsBox2,
             title: 'Categories',
             link: '/Categories',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsBag,
             title: 'Products',
             link: '/Products',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsSliders,
             title: 'Settings',
             link: '/Settings',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsQuestionCircle,
             title: 'Support',
             link: '/Support',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsTicketPerforated,
             title: 'Transactions',
             link: '/Transactions',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsPeople,
             title: 'Users',
             link: '/Users',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsArrowBarLeft,
             title: 'Logout',
             link: '/',
-            selected: false
+            selected: false,
+            clickAction: handleLogout
         },
     ]);
+
 
     const handleMenuClick = (index) => {
         const updatedMenus = menus.map((menu, i) => {
@@ -91,7 +106,10 @@ const ExpandedSidebar = () => {
                         <Link
                             to={menu.link}
                             key={index}
-                            onClick={() => handleMenuClick(index)}
+                            onClick={() => {
+                                handleMenuClick(index);
+                                menu.clickAction();
+                            }}
                             className={menu.selected ? 'selected-menu' : 'unselected-menu'}
                         >
                             <menu.icon className='es-icon' />
@@ -107,54 +125,68 @@ const ExpandedSidebar = () => {
 };
 
 const CompactedSidebar = () => {
+    const handleLogout = () => {
+        localStorage.setItem('selectedMenuIndex', '0'); // Store selected menu index in localStorage
+    };
+
+    const doNothing = () => { };
+
     const [menus, setMenus] = useState([
         {
             icon: BsGrid,
             title: 'Dashboard',
             link: '/Dashboard',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsBox2,
             title: 'Categories',
             link: '/Categories',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsBag,
             title: 'Products',
             link: '/Products',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsSliders,
             title: 'Settings',
             link: '/Settings',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsQuestionCircle,
             title: 'Support',
             link: '/Support',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsTicketPerforated,
             title: 'Transactions',
             link: '/Transactions',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsPeople,
             title: 'Users',
             link: '/Users',
-            selected: false
+            selected: false,
+            clickAction: doNothing
         },
         {
             icon: BsArrowBarLeft,
             title: 'Logout',
             link: '/',
-            selected: false
+            selected: false,
+            clickAction: handleLogout
         },
     ]);
 
@@ -196,7 +228,10 @@ const CompactedSidebar = () => {
                             <Link
                                 to={menu.link}
                                 key={index}
-                                onClick={() => handleMenuClick(index)}
+                                onClick={() => {
+                                    handleMenuClick(index);
+                                    menu.clickAction();
+                                }}
                                 className={menu.selected ? 'selected-menu' : 'unselected-menu'}
                             >
                                 <menu.icon className='es-icon' />
