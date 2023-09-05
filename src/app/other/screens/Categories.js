@@ -7,7 +7,7 @@ const Categories = () => {
         <>
             <div className="main-component-container">
                 <CompactedSidebar />
-
+                
                 <ViewCategories />
             </div>
         </>
