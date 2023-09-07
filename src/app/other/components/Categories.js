@@ -2,13 +2,37 @@ import React, { useState } from 'react'
 import Header from '../components/Header';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { CategoriesCardList } from './CardsList';
 
 const ViewCategories = () => {
     const [showViewCategory, setShowViewCategory] = useState(true);
-
+    
     const handleScreenToggle = () => {
         setShowViewCategory(!showViewCategory);
     };
+
+    const categories = [
+        {
+            id: 1,
+            title: 'Computers & Accessories',
+            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi dignissimos sed architecto distinctio, atque ipsa recusandae laboriosam quae rem, quas ad quos explicabo! Labore quo, necessitatibus ipsum delectus consectetur nulla.'
+        },
+        {
+            id: 2,
+            title: 'Furniture & Bedroom Stuff Outside',
+            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi dignissimos sed architecto distinctio, atque ipsa recusandae laboriosam quae rem, quas ad quos explicabo! Labore quo, necessitatibus ipsum delectus consectetur nulla.'
+        },
+        {
+            id: 3,
+            title: 'Furniture',
+            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi dignissimos sed architecto distinctio, atque ipsa recusandae laboriosam quae rem, quas ad quos explicabo! Labore quo, necessitatibus ipsum delectus consectetur nulla.'
+        },
+        {
+            id: 4,
+            title: 'Furniture',
+            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi dignissimos sed architecto distinctio, atque ipsa recusandae laboriosam quae rem, quas ad quos explicabo! Labore quo, necessitatibus ipsum delectus consectetur nulla.'
+        }
+    ]
 
     return (
         <>
@@ -17,7 +41,9 @@ const ViewCategories = () => {
                     <Header title='View categories' route1='Create category' toggle={handleScreenToggle} />
 
                     <section className="content">
-                        View Categories
+                        <div className="view-container">
+                            <CategoriesCardList categories={categories} />
+                        </div>
                     </section>
                 </section>
             ) : (
@@ -40,6 +66,8 @@ const CreateCategory = () => {
         if (title === '' || description === '') {
             toast.error('All fields are required.')
             return false;
+        } else {
+            return true;
         }
     }
 
@@ -64,18 +92,19 @@ const CreateCategory = () => {
                     <Header title='Create category' route1='View categories' toggle={handleScreenToggle} />
 
                     <section className="content">
-                        <span className="form-container-2"></span>
-                        <span className="form-inputs-container-2">
-                            <span className="form-elements-2">
-                                <label htmlFor="" className="input-label-2">Input label:</label>
-                                <input type="text" className="input-element-2" value={title} onChange={(event) => setTitle(event.target.value)} />
+                        <span className="form-container-2">
+                            <span className="form-inputs-container-2">
+                                <span className="form-elements-2">
+                                    <label htmlFor="" className="input-label-2">Input label:</label>
+                                    <input type="text" className="input-element-2" value={title} onChange={(event) => setTitle(event.target.value)} />
+                                </span>
+                                <span className="form-elements-2">
+                                    <label htmlFor="" className="input-label-2">Input label:</label>
+                                    <textarea type="text" cols="30" rows="10" className="input-element-2" value={description} onChange={(event) => setDescription(event.target.value)} />
+                                </span>
                             </span>
-                            <span className="form-elements-2">
-                                <label htmlFor="" className="input-label-2">Input label:</label>
-                                <input type="text" className="input-element-2" value={description} onChange={(event) => setDescription(event.target.value)} />
-                            </span>
+                            <button className="login-button" onClick={handleSave}>Add record</button>
                         </span>
-                        <button className="login-button" onClick={handleSave}>Add record</button>
                     </section>
                     <ToastContainer />
                 </section>

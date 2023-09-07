@@ -121,9 +121,13 @@ a {
 }
 
 .content {
-    background-color: #fafafa;
+    background-color: #fdfdfd;
     border-radius: 0.2vw;
     height: 100%;
+}
+
+.view-container {
+    padding: 1%;
 }
 
 .colored-page-link {
@@ -258,7 +262,14 @@ a {
 }
 
 /* Create components */
-.form-container-2 {}
+.form-container-2 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 4% 24%;
+    gap: 4vw;
+    width: 100%;
+}
 
 .form-inputs-container-2 {
     display: flex;
@@ -282,6 +293,7 @@ a {
     border: 0.01vw solid #1b8572;
     border-radius: .3vw;
     padding: 0.8vw 1vw;
+    resize: none;
     width: 100%;
 }
 
@@ -303,4 +315,35 @@ a {
 
 .reset-fields {
     color: #1f9984;
+}
+
+/* Cards */
+.custom-card-1 {
+    border-bottom: 0.05vw solid #ddd;
+    color: #404040;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2vw;
+    padding: 1%;
+}
+
+.category-card {}
+
+/* Cards List */
+.card-deck {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.card-headings > span {
+    color: #404040;
+    font-family: 'Jost-Medium';
+}
+
+.update-heading {
+    color: #404040;
+    font-family: 'Jost-Medium';
+    font-size: 1.4vw;
 }
