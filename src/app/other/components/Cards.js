@@ -72,9 +72,78 @@ const HelpCard = () => {
     );
 };
 
-const ProductsCard = () => {
+const ProductsCard = ({ index, id, barcode, name, category, price, quantity, reOrderValue, status }) => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [newName, setName] = useState(name);
+    const [newCategory, setCategory] = useState(category);
+    const [newPrice, setPrice] = useState(price);
+    const [newQuantity, setQuantity] = useState(quantity);
+    const [newReOrderValue, setReordervalue] = useState(reOrderValue);
+
+    function openDialog() {
+        setModalIsOpen(true);
+    }
+
+    function closeDialog() {
+        setModalIsOpen(false);
+    }
+
+    const handleUpdate = () => {
+        // database logic and processes
+        return true;
+    };
+
+    const handleValidation = () => {
+        if (newName.length === 0 || newCategory.length === 0 || newPrice.length === 0 || newQuantity.length === 0 || newReOrderValue.length === 0) {
+            toast.error('All fields are required.');
+        } else {
+            handleUpdate();
+        }
+    }
+
     return (
-        <></>
+        <>
+            <div onClick={openDialog} className="custom-card-1 category-card">
+                <span style={{ textAlign: 'center', width: '5%' }}>{index}</span>
+                <span style={{ textAlign: 'left', width: '10%' }}>{barcode}</span>
+                <span style={{ textAlign: 'left', width: '34%' }}>{name}</span>
+                <span style={{ textAlign: 'left', width: '25%' }}>{category}</span>
+                <span style={{ textAlign: 'left', width: '10%' }}>{price}</span>
+                <span style={{ textAlign: 'left', width: '8%', textAlign: 'center' }}>{quantity}</span>
+                <span style={{ textAlign: 'left', width: '8%' }}>{status}</span>
+            </div>
+
+            <ReactModal closeTimeoutMS={500} isOpen={modalIsOpen} onRequestClose={closeDialog} >
+                <section className="content">
+                    <span className="form-container-2">
+                        <span className='update-heading'>Update Record </span>                    <span className="form-inputs-container-2">
+                            <span className="form-elements-2">
+                                <label htmlFor="" className="input-label-2">Name:</label>
+                                <input type="text" className="input-element-2" value={newName} onChange={(event) => setName(event.target.value)} />
+                            </span>
+                            <span className="form-elements-2">
+                                <label htmlFor="" className="input-label-2">Category:</label>
+                                <input type="email" className="input-element-2" value={newCategory} onChange={(event) => setCategory(event.target.value)} />
+                            </span>
+                            <span className="form-elements-2">
+                                <label htmlFor="" className="input-label-2">Price:</label>
+                                <input type="number" className="input-element-2" value={newPrice} onChange={(event) => setPrice(event.target.value)} />
+                            </span>
+                            <span className="form-elements-2">
+                                <label htmlFor="" className="input-label-2">Quantity:</label>
+                                <input type="number" className="input-element-2" value={newQuantity} onChange={(event) => setQuantity(event.target.value)} />
+                            </span>
+                            <span className="form-elements-2">
+                                <label htmlFor="" className="input-label-2">Reorder Value:</label>
+                                <input type='number' className="input-element-2" value={newReOrderValue} onChange={(event) => setReordervalue(event.target.value)} />
+                            </span>
+                        </span>
+                        <button className="login-button" onClick={handleValidation}>Update record</button>
+                    </span>
+                </section>
+            </ReactModal>
+            <ToastContainer />
+        </>
     );
 };
 
