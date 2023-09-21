@@ -1,5 +1,5 @@
 import React from 'react';
-import { CategoriesCard, UsersCard } from './Cards';
+import { CategoriesCard, ProductsCard, UsersCard } from './Cards';
 
 const CategoriesCardList = ({ categories }) => {
     return (
@@ -36,9 +36,35 @@ const HelpCardList = () => {
     );
 };
 
-const ProductsCardList = () => {
+const ProductsCardList = ({ products }) => {
     return (
-        <></>
+        <>
+            <section className="card-deck">
+                <div className="custom-card-1 category-card card-headings">
+                    <span style={{ textAlign: 'center', width: '5%', fontFamily: 'Jost-Medium' }}>Index</span>
+                    <span style={{ textAlign: 'left', width: '10%' }}>Barcode</span>
+                    <span style={{ textAlign: 'left', width: '34%' }}>Product name</span>
+                    <span style={{ textAlign: 'left', width: '25%' }}>Category</span>
+                    <span style={{ textAlign: 'left', width: '10%' }}>Price</span>
+                    <span style={{ textAlign: 'left', width: '8%', textAlign: 'center' }}>Quantity</span>
+                    <span style={{ textAlign: 'left', width: '8%' }}>Status</span>
+                </div>
+                {products.map((product, index) => (
+                    <ProductsCard
+                        key={product.id}
+                        index={index + 1}
+                        id={product.id}
+                        barcode={product.barcode}
+                        name={product.name}
+                        category={product.category}
+                        price={product.price}
+                        quantity={product.quantity}
+                        reOrderValue={product.reOrderValue}
+                        status={product.status}
+                    />
+                ))}
+            </section>
+        </>
     );
 };
 
