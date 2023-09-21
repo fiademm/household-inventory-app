@@ -3,7 +3,7 @@ import Header from '../components/Header';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BsEye, BsEyeSlash } from 'react-icons/bs';
-import ReactModal from 'react-modal';
+import { UsersCardList } from './CardsList';
 
 const ViewUsers = () => {
     const [showViewUser, setShowViewUser] = useState(true);
@@ -12,6 +12,30 @@ const ViewUsers = () => {
         setShowViewUser(!showViewUser);
     };
 
+    const users = [
+        {
+            id: 1,
+            name: 'Ogbee Richard',
+            email: 'ogbeerichard@email.com',
+            role: 'Administrator',
+            password: 'admin2047'
+        },
+        {
+            id: 2,
+            name: 'CJ Oppong',
+            email: 'cjoppong@email.com',
+            role: 'Administrator',
+            password: 'admin2047'
+        },
+        {
+            id: 3,
+            name: 'Jerry John',
+            email: 'jerryjohn@email.com',
+            role: 'Administrator',
+            password: 'admin2047'
+        },
+    ];
+
     return (
         <>
             {showViewUser ? (
@@ -19,7 +43,9 @@ const ViewUsers = () => {
                     <Header title='View users' route1='Create user' toggle={handleScreenToggle} />
 
                     <section className="content">
-                        View Users
+                        <div className="view-container">
+                            <UsersCardList users={users} />
+                        </div>
                     </section>
                 </section>
             ) : (
@@ -78,16 +104,6 @@ const CreateUser = () => {
         }
     }
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-
-    function openDialog() {
-        setModalIsOpen(true);
-    }
-
-    function closeDialog() {
-        setModalIsOpen(false);
-    }
-
     return (
         <>
             {showViewUser ? (
@@ -112,7 +128,7 @@ const CreateUser = () => {
                                     <input type="text" className="input-element-2" value={role} onChange={(event) => setRole(event.target.value)} />
                                 </span>
                                 <span className="form-elements-2">
-                                    <label htmlFor="" className="input-label-2">Role:</label>
+                                    <label htmlFor="" className="input-label-2">Password:</label>
                                     <span className="password-input">
                                         <input required className="input-element" type={showPassword ? 'text' : 'password'} value={password} onChange={(event) => setPassword(event.target.value)} />
                                         {showPassword ? (<BsEyeSlash className="password-icon" onClick={handleShowPassword} />) : (<BsEye className="password-icon" onClick={handleShowPassword} />)}
@@ -120,38 +136,7 @@ const CreateUser = () => {
                                 </span>
                             </span>
                             <button className="login-button" onClick={handleSave}>Add record</button>
-                            <button className="login-button" onClick={openDialog}>Open modal</button>
                         </span>
-                        <ReactModal
-                            closeTimeoutMS={500}
-                            isOpen={modalIsOpen}
-                            onRequestClose={closeDialog}
-                        >
-                            <span className="form-container-2">
-                                <span className="form-inputs-container-2">
-                                    <span className="form-elements-2">
-                                        <label htmlFor="" className="input-label-2">Name:</label>
-                                        <input type="text" className="input-element-2" value={name} onChange={(event) => setName(event.target.value)} />
-                                    </span>
-                                    <span className="form-elements-2">
-                                        <label htmlFor="" className="input-label-2">Email address:</label>
-                                        <input type="email" className="input-element-2" value={email} onChange={(event) => setEmail(event.target.value)} />
-                                    </span>
-                                    <span className="form-elements-2">
-                                        <label htmlFor="" className="input-label-2">Role:</label>
-                                        <input type="text" className="input-element-2" value={role} onChange={(event) => setRole(event.target.value)} />
-                                    </span>
-                                    <span className="form-elements-2">
-                                        <label htmlFor="" className="input-label-2">Role:</label>
-                                        <span className="password-input">
-                                            <input required className="input-element" type={showPassword ? 'text' : 'password'} value={password} onChange={(event) => setPassword(event.target.value)} />
-                                            {showPassword ? (<BsEyeSlash className="password-icon" onClick={handleShowPassword} />) : (<BsEye className="password-icon" onClick={handleShowPassword} />)}
-                                        </span>
-                                    </span>
-                                </span>
-                                <button className="login-button" onClick={handleSave}>Add record</button>
-                            </span>
-                        </ReactModal>
                     </section>
                     <ToastContainer />
                 </section>
