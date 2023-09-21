@@ -1,5 +1,5 @@
-import { async } from 'q';
 import React, { useState } from 'react';
+import { BsEye, BsEyeSlash } from 'react-icons/bs';
 import ReactModal from 'react-modal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,8 +17,8 @@ const CategoriesCard = ({ index, id, title, description }) => {
         setModalIsOpen(false);
     }
 
-    const handleUpdate = () => { 
-       
+    const handleUpdate = () => {
+
         return true;
     };
 
@@ -96,9 +96,80 @@ const TransactionsCard = () => {
     );
 };
 
-const UsersCard = () => {
+const UsersCard = ({ index, id, name, email, role, password }) => {
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [newName, setName] = useState(name);
+    const [newEmail, setEmail] = useState(email);
+    const [newRole, setRole] = useState(role);
+    const [newPassword, setPassword] = useState(password);
+    const [showPassword, setShowPassword] = useState(false);
+
+
+    function openDialog() {
+        setModalIsOpen(true);
+    }
+
+    function closeDialog() {
+        setModalIsOpen(false);
+    }
+
+    const handleUpdate = () => {
+
+        return true;
+    };
+
+    const handleValidation = () => {
+        if (newName.length === 0 || newEmail.length === 0 || newRole.length === 0 || newPassword.length === 0) {
+            toast.error('All fields are required.');
+        } else {
+            handleUpdate();
+        }
+    }
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
-        <></>
+        <>
+            <div onClick={openDialog} className="custom-card-1 category-card">
+                <span style={{ textAlign: 'center', width: '5%' }}>{index}</span>
+                <span style={{ textAlign: 'left', width: '25%' }}>{name}</span>
+                <span style={{ textAlign: 'left', width: '35%' }}>{email}</span>
+                <span style={{ textAlign: 'left', width: '15%' }}>{role}</span>
+                <span style={{ textAlign: 'left', width: '25%' }}>{password}</span>
+            </div>
+
+            <ReactModal closeTimeoutMS={500} isOpen={modalIsOpen} onRequestClose={closeDialog} >
+                <section className="content">
+                    <span className="form-container-2">
+                        <span className='update-heading'>Update Record </span>                    <span className="form-inputs-container-2">
+                            <span className="form-elements-2">
+                                <label htmlFor="" className="input-label-2">Name:</label>
+                                <input type="text" className="input-element-2" value={newName} onChange={(event) => setName(event.target.value)} />
+                            </span>
+                            <span className="form-elements-2">
+                                <label htmlFor="" className="input-label-2">Email address:</label>
+                                <input type="email" className="input-element-2" value={newEmail} onChange={(event) => setEmail(event.target.value)} />
+                            </span>
+                            <span className="form-elements-2">
+                                <label htmlFor="" className="input-label-2">Role:</label>
+                                <input type="text" className="input-element-2" value={newRole} onChange={(event) => setRole(event.target.value)} />
+                            </span>
+                            <span className="form-elements-2">
+                                <label htmlFor="" className="input-label-2">Password:</label>
+                                <span className="password-input">
+                                    <input required className="input-element" type={showPassword ? 'text' : 'password'} value={newPassword} onChange={(event) => setPassword(event.target.value)} />
+                                    {showPassword ? (<BsEyeSlash className="password-icon" onClick={handleShowPassword} />) : (<BsEye className="password-icon" onClick={handleShowPassword} />)}
+                                </span>
+                            </span>
+                        </span>
+                        <button className="login-button" onClick={handleValidation}>Update record</button>
+                    </span>
+                </section>
+            </ReactModal>
+            <ToastContainer />
+        </>
     );
 };
 

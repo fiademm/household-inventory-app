@@ -1,5 +1,5 @@
 import React from 'react';
-import { CategoriesCard } from './Cards';
+import { CategoriesCard, UsersCard } from './Cards';
 
 const CategoriesCardList = ({ categories }) => {
     return (
@@ -60,9 +60,30 @@ const TransactionsCardList = () => {
     );
 };
 
-const UsersCardList = () => {
+const UsersCardList = ({ users }) => {
     return (
-        <></>
+        <>
+            <section className="card-deck">
+                <div className="custom-card-1 category-card card-headings">
+                    <span style={{ textAlign: 'center', width: '5%', fontFamily: 'Jost-Medium' }}>Index</span>
+                    <span style={{ textAlign: 'left', width: '25%' }}>Name</span>
+                    <span style={{ textAlign: 'left', width: '35%' }}>Email address</span>
+                    <span style={{ textAlign: 'left', width: '15%' }}>Role</span>
+                    <span style={{ textAlign: 'left', width: '25%' }}>Password</span>
+                </div>
+                {users.map((user, index) => (
+                    <UsersCard
+                        key={user.id}
+                        index={index + 1}
+                        id={user.id}
+                        name={user.name}
+                        email={user.email}
+                        role={user.role}
+                        password={user.password}
+                    />
+                ))}
+            </section>
+        </>
     );
 };
 
