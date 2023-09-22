@@ -116,7 +116,8 @@ const ProductsCard = ({ index, id, barcode, name, category, price, quantity, reO
             <ReactModal closeTimeoutMS={500} isOpen={modalIsOpen} onRequestClose={closeDialog} >
                 <section className="content">
                     <span className="form-container-2">
-                        <span className='update-heading'>Update Record </span>                    <span className="form-inputs-container-2">
+                        <span className='update-heading'>Update Record </span>
+                        <span className="form-inputs-container-2">
                             <span className="form-elements-2">
                                 <label htmlFor="" className="input-label-2">Name:</label>
                                 <input type="text" className="input-element-2" value={newName} onChange={(event) => setName(event.target.value)} />

@@ -108,7 +108,7 @@ const CreateProduct = () => {
     };
 
     const handleValidation = () => {
-        if (barcode === '' || name === '' || category === '' || price === '' || quantity === '' || reOrderValue === '' || status === '' ) {
+        if (barcode === '' || name === '' || category === '' || price === '' || quantity === '' || reOrderValue === '' || status === '') {
             toast.error('All fields are required.')
             return false;
         } else {
@@ -137,7 +137,39 @@ const CreateProduct = () => {
                     <Header title='Create product' route1='View products' toggle={handleScreenToggle} />
 
                     <section className="content">
-                        Create Product
+                        <span className="form-container-2">
+                            <span className="form-inputs-container-2">
+                                <span className="form-elements-2">
+                                    <label htmlFor="" className="input-label-2">Barcode:</label>
+                                    <input type="text" className="input-element-2" value={barcode} onChange={(event) => setBarcode(event.target.value)} />
+                                </span>
+                                <span className="form-elements-2">
+                                    <label htmlFor="" className="input-label-2">Name:</label>
+                                    <input type="text" className="input-element-2" value={name} onChange={(event) => setName(event.target.value)} />
+                                </span>
+                                <span className="form-elements-2">
+                                    <label htmlFor="" className="input-label-2">Category:</label>
+                                    <input type="email" className="input-element-2" value={category} onChange={(event) => setCategory(event.target.value)} />
+                                </span>
+                                <span className="form-elements-2">
+                                    <label htmlFor="" className="input-label-2">Price:</label>
+                                    <input type="number" className="input-element-2" value={price} onChange={(event) => setPrice(event.target.value)} />
+                                </span>
+                                <span className="form-elements-2">
+                                    <label htmlFor="" className="input-label-2">Quantity:</label>
+                                    <input type="number" className="input-element-2" value={quantity} onChange={(event) => setQuantity(event.target.value)} />
+                                </span>
+                                <span className="form-elements-2">
+                                    <label htmlFor="" className="input-label-2">Reorder Value:</label>
+                                    <input type='number' className="input-element-2" value={reOrderValue} onChange={(event) => setReordervalue(event.target.value)} />
+                                </span>
+                                <span className="form-elements-2">
+                                    <label htmlFor="" className="input-label-2">Status:</label>
+                                    <input type="text" className="input-element-2" value={status} onChange={(event) => setStatus(event.target.value)} />
+                                </span>
+                            </span>
+                            <button className="login-button" onClick={handleValidation}>Update record</button>
+                        </span>
                     </section>
                 </section>
             )}
