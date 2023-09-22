@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Header from '../components/Header';
+import { TransactionsCardList } from './CardsList';
 
 const ViewTransactions = () => {
     const [showViewTransaction, setShowViewTransaction] = useState(true);
@@ -8,6 +9,41 @@ const ViewTransactions = () => {
         setShowViewTransaction(!showViewTransaction);
     };
 
+    const transactions = [
+        {
+            id: 1,
+            product: '<Brand> <Name> <Size> <Color>',
+            price: 400.50,
+            quantity: 3,
+            amount: 1201.50,
+            date: '04/26/2023'
+        },
+        {
+            id: 2,
+            product: '<Brand> <Name> <Size> <Color>',
+            price: 400.50,
+            quantity: 3,
+            amount: 1201.50,
+            date: '04/26/2023'
+        },
+        {
+            id: 3,
+            product: '<Brand> <Name> <Size> <Color>',
+            price: 400.50,
+            quantity: 3,
+            amount: 1201.50,
+            date: '04/26/2023'
+        },
+        {
+            id: 4,
+            product: '<Brand> <Name> <Size> <Color>',
+            price: 400.50,
+            quantity: 3,
+            amount: 1201.50,
+            date: '04/26/2023'
+        }
+    ]
+
     return (
         <>
             {showViewTransaction ? (
@@ -15,7 +51,9 @@ const ViewTransactions = () => {
                     <Header title='View transactions' route1='Create transaction' toggle={handleScreenToggle} />
 
                     <section className="content">
-                        View Transactions
+                    <div className="view-container">
+                            <TransactionsCardList transactions={transactions} />
+                        </div>
                     </section>
                 </section>
             ) : (

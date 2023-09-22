@@ -171,6 +171,7 @@ const CreateProduct = () => {
                             <button className="login-button" onClick={handleValidation}>Update record</button>
                         </span>
                     </section>
+                    <ToastContainer />
                 </section>
             )}
         </>
